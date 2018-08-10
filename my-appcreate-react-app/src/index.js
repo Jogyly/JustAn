@@ -1,15 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CharacterName from './App.js';
 
 ReactDOM.render(
-    <Game />,
+    <CharacterName/>,
     document.getElementById('root')
 );
 
-class Game extends React.Component {
-    render() {
-        return (<div>Hello, just another</div>);
-
-
-    }
-}
