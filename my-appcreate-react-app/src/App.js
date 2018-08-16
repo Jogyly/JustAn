@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css';
+import Character from './character.js';
+import ReactDOM from 'react-dom';
 
 class CharacterName extends React.Component {
 
