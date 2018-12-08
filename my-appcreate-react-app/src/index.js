@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CharacterName from './App.js';
+import App from './App/App.js';
 import Character from './character';
 
 ReactDOM.render(
-    <CharacterName/>,
+    <App/>,
     document.getElementById('root')
 );
