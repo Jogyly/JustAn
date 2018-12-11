@@ -11,7 +11,7 @@ class App extends React.Component{
   }
 
   componentWillMount = () => {
-    utils.readTextFile("./characterInfo.json", this.loadRes);
+    utils("./characterInfo.json", this.loadRes);
   }
 
   loadRes = (response) => {

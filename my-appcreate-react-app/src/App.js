@@ -16,7 +16,7 @@ class CharacterName extends React.Component {
                     callback(rawFile.responseText);
                 }
             }
-            rawFile.send(null);
+            rawFile.send();
         }
 
         let data = null;

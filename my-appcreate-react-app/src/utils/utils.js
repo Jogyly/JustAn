@@ -1,16 +1,17 @@
 
-class utils {
-  readTextFile = (file, callback) => {
+
+  function readTextFile(file, callback) {
+    debugger;
     let rawFile = new XMLHttpRequest();
     rawFile.overrideMimeType("application/json");
     rawFile.open("GET", file, true);
     rawFile.onreadystatechange = function() {
-      if (rawFile.readyState === 4 && rawFile.status === "200") {
-        callback(rawFile.responseText);
+      if (rawFile.readyState === 4 && rawFile.status === 200) {
+        const response = JSON.parse(rawFile.responseText);
+        callback(response);
       }
     }
-    rawFile.send(null);
+    rawFile.send();
   }
-}
 
-export default utils;
+export default readTextFile;
