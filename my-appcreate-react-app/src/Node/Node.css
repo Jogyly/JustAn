@@ -1,5 +1,7 @@
 .node {
   color: red;
   font: Arial;
-  display: 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
