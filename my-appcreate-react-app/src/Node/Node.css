@@ -5,3 +5,20 @@
   align-items: center;
   justify-content: center;
 }
+
+.popup {
+  min-width: 100px;
+  min-height: 100px;
+  padding: 20px;
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  border-radius: 5%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.name {
+  font-size: 26px;
+  text-align:  center;
+}

@@ -2,18 +2,24 @@ import React from 'react';
 import style from "./Node.css"; 
 
 class Node extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: this.props.name,
-      show: false,
-    }
+  state = {
+    name: this.props.name,
+    show: false,
+    character: this.props.character,
   }
 
   renderCharacter = () => {
     return (
-      <div>
-        Character
+      <div className="popup">
+        <div className="name">
+          { this.state.character.name }
+        </div>
+        <div className="description">
+          { this.state.character.description }
+        </div>
+        <div className="img">
+          { this.state.character.img }
+        </div>
       </div>
     );
   }
@@ -28,7 +34,7 @@ class Node extends React.Component{
     return (
       <div>
         <div className="node" onClick={this.changeShow}>
-          hello
+          { this.state.character.name }
         </div>
         {
           this.state.show &&

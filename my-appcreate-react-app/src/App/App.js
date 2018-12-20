@@ -1,13 +1,11 @@
 import React from 'react';
 import Node from "../Node/Node.js";
-import utils from "../utils/utils.js";
+import utils from "../utils/readTextFile.js";
 
 class App extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      load: false,
-    }
+  state = {
+    load: false,
+    characters: null,
   }
 
   componentWillMount = () => {
@@ -15,16 +13,22 @@ class App extends React.Component{
   }
 
   loadRes = (response) => {
-    debugger;
-    console.dir(response);
+    if (!response || !response.characters) {
+      return null;
+    }
+
+    this.setState({
+      load: true,
+      characters: response.characters,
+    })
   }
 
   render() {
     if (!this.state.load) return ("");
     return (
-      <Node/>
-  )}
-}
+      <Node character={this.state.characters[0]}/>
+  )};
+};
 
 
 export default App;
