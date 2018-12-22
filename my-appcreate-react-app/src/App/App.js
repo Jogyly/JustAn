@@ -2,7 +2,11 @@ import React from 'react';
 import Level from "../Level/Level.js";
 import readTextFile from "../utils/readTextFile.js";
 import makeTree from "../utils/makeTree.js";
+import { observer } from 'mobx-react';
 
+import Store from "../store/store.js";
+
+@observer
 class App extends React.Component{
   state = {
     load: false,
@@ -18,7 +22,9 @@ class App extends React.Component{
       return null;
     }
 
-    const characters = makeTree(response.characters);
+    let store2 = new Store(response.characters);
+
+    const characters = makeTree(store2.characters);
     this.setState({
       load: true,
       characters: characters,

@@ -1,6 +1,8 @@
 import React from 'react';
 import style from "./Node.css"; 
+import { observer } from 'mobx-react';
 
+@observer
 class Node extends React.Component{
   state = {
     name: this.props.name,
@@ -54,18 +56,23 @@ class Node extends React.Component{
     }
   }
 
+  addCharacter = () => {
+    
+  }
+
   changeShow = () => {
     this.setState({
       show: !this.state.show,
-    })
+    });
   }
 
   render() {
     return (
-      <div>
+      <div className="commonNode">
         <div className="node" ref={this.refWrap}>
           { this.state.character.name }
         </div>
+        <button onClick={this.addCharacter}>+</button>
         {
           this.state.show &&
             this.renderCharacter()
