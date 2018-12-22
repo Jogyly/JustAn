@@ -8,9 +8,20 @@ class Node extends React.Component{
     character: this.props.character,
   }
 
+  componentDidMount = () => {
+    document.addEventListener("click", this.handleClick);
+  }
+
+  componentWillUnmount = () => {
+    document.removeEventListener("click", this.handleClick);
+  }
+
   renderCharacter = () => {
     return (
-      <div className="popup">
+      <div className="popup" ref={this.refWrapPopup}>
+        <span className="cross" onClick={this.changeShow}>
+          &times;
+        </span>
         <div className="name">
           { this.state.character.name }
         </div>
@@ -18,10 +29,29 @@ class Node extends React.Component{
           { this.state.character.description }
         </div>
         <div className="img">
-          { this.state.character.img }
+          <img src={`./img/${this.state.character.id}.jpg`} alt={this.state.character.id}></img>
         </div>
       </div>
     );
+  }
+
+  refWrapPopup = (node) => {
+    this.wrapPopup = node;
+  }
+
+  refWrap = (node) => {
+    this.wrap = node;
+  }
+
+  handleClick = (event) => {
+    if (!this.state.show && this.wrap.contains(event.target)) {
+      this.changeShow();
+      return;
+    }
+
+    if (this.state.show && !this.wrapPopup.contains(event.target)) {
+      this.changeShow();
+    }
   }
 
   changeShow = () => {
@@ -33,7 +63,7 @@ class Node extends React.Component{
   render() {
     return (
       <div>
-        <div className="node" onClick={this.changeShow}>
+        <div className="node" ref={this.refWrap}>
           { this.state.character.name }
         </div>
         {

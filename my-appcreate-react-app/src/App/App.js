@@ -1,6 +1,7 @@
 import React from 'react';
-import Node from "../Node/Node.js";
-import utils from "../utils/readTextFile.js";
+import Level from "../Level/Level.js";
+import readTextFile from "../utils/readTextFile.js";
+import makeTree from "../utils/makeTree.js";
 
 class App extends React.Component{
   state = {
@@ -9,7 +10,7 @@ class App extends React.Component{
   }
 
   componentWillMount = () => {
-    utils("./characterInfo.json", this.loadRes);
+    readTextFile("./characterInfo.json", this.loadRes);
   }
 
   loadRes = (response) => {
@@ -17,16 +18,17 @@ class App extends React.Component{
       return null;
     }
 
+    const characters = makeTree(response.characters);
     this.setState({
       load: true,
-      characters: response.characters,
+      characters: characters,
     })
   }
 
   render() {
     if (!this.state.load) return ("");
     return (
-      <Node character={this.state.characters[0]}/>
+      <Level characters={this.state.characters} />
   )};
 };
 

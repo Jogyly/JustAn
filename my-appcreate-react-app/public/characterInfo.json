@@ -1,14 +1,46 @@
 {
   "characters": [
     {
-      "name": "Тень",
-      "description": "Сильнейший из ангелов. Всегда носит черные металлические перчатки и маску.",
-      "img": "imgasdasd"
+      "id": "creatures",
+      "name": "Существа",
+      "description": "Существа",
+      "parent": null
     },
     {
-      "name": "Wolf",
+      "id": "ancients",
+      "name": "Древние",
+      "description": "Древние",
+      "parent": "creatures"
+    },
+    {
+      "id": "dragons",
+      "name": "Драконы",
+      "description": "Драконы",
+      "parent": "creatures"
+    },
+    {
+      "id": "dark_dragon",
+      "name": "Тёмный дракон",
+      "description": "Тёмный дракон",
+      "parent": "dragons"
+    },
+    {
+      "id": "angel",
+      "name": "Ангелы",
+      "description": "Существа с крыльями",
+      "parent": "creatures"
+    },
+    {
+      "id": "shadow",
+      "name": "Тень",
+      "description": "Сильнейший из ангелов. Всегда носит черные металлические перчатки и маску.",
+      "parent": "angel"
+    },
+    {
+      "id": "wolf",
+      "name": "Волк",
       "description": "Angel",
-      "img": "img"
+      "parent": "angel"
     }
     ]
 }
