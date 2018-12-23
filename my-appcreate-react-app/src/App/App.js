@@ -6,7 +6,6 @@ import { observer } from 'mobx-react';
 
 import Store from "../store/store.js";
 
-@observer
 class App extends React.Component{
   state = {
     load: false,
@@ -39,4 +38,4 @@ class App extends React.Component{
 };
 
 
-export default App;
+export default observer(App);

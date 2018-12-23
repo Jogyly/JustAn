@@ -1,10 +1,10 @@
-import { observable } from 'mobx';
+import { observable, extendObservable } from 'mobx';
 
 class Store {
-  @observable characters;
-
   constructor(characters) {
-    this.characters = characters;
+    extendObservable(this, {
+      characters: characters,
+    });
   }
 
   initializeStore = (characters) => {

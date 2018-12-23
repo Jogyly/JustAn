@@ -1,9 +1,7 @@
 import React from 'react';
 import style from "./Level.css"; 
 import Node from "../Node/Node.js";
-import { observer } from 'mobx-react';
 
-@observer
 class Level extends React.Component{
 
   renderLevel = () => {

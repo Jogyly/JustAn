@@ -1,8 +1,6 @@
 import React from 'react';
 import style from "./Node.css"; 
-import { observer } from 'mobx-react';
 
-@observer
 class Node extends React.Component{
   state = {
     name: this.props.name,
