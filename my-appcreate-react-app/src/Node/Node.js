@@ -6,6 +6,7 @@ class Node extends React.Component{
     name: this.props.name,
     show: false,
     character: this.props.character,
+    edit: false,
   }
 
   componentDidMount = () => {
@@ -19,6 +20,9 @@ class Node extends React.Component{
   renderCharacter = () => {
     return (
       <div className="popup" ref={this.refWrapPopup}>
+        <span className="edit" onClick={this.edit}>
+          &Xi;
+        </span>
         <span className="cross" onClick={this.changeShow}>
           &times;
         </span>
@@ -30,6 +34,29 @@ class Node extends React.Component{
         </div>
         <div className="img">
           <img src={`./img/${this.state.character.id}.jpg`} alt={this.state.character.id}></img>
+        </div>
+      </div>
+    );
+  }
+
+  renderEdit = () => {
+    return (
+      <div className="popup" ref={this.refWrapPopup}>
+        <span className="cross" onClick={this.changeShow}>
+          &times;
+        </span>
+        <input className="name" type="text" name='value'
+          value={ this.state.character.name }
+        />
+        <textarea className="description" name='value'
+          value={ this.state.character.description }
+        />
+        <div className="img">
+          <img src={`./img/${this.state.character.id}.jpg`} alt={this.state.character.id}></img>
+        </div>
+        <div className="actions">
+          <button>Сохранить</button>
+          <button>Отменить</button>
         </div>
       </div>
     );
@@ -54,6 +81,13 @@ class Node extends React.Component{
     }
   }
 
+  handleChange = (e) => {
+    if (e.target.name == "name") {
+
+    } 
+    this.setState({[e.target.name]: e.target.value})
+  }
+
   addCharacter = () => {
     
   }
@@ -64,7 +98,14 @@ class Node extends React.Component{
     });
   }
 
+  edit = () => {
+    this.setState({
+      edit: !this.state.edit,
+    })
+  }
+
   render() {
+    console.log(this.state.show + " " + this.state.edit);
     return (
       <div className="commonNode">
         <div className="node" ref={this.refWrap}>
@@ -72,8 +113,11 @@ class Node extends React.Component{
         </div>
         <button onClick={this.addCharacter}>+</button>
         {
-          this.state.show &&
-            this.renderCharacter()
+          this.state.show && 
+            (this.state.edit 
+              ? this.renderEdit()
+              : this.renderCharacter()
+            )
         }
       </div>
     );
