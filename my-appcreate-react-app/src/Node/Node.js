@@ -42,21 +42,21 @@ class Node extends React.Component{
   renderEdit = () => {
     return (
       <div className="popup" ref={this.refWrapPopup}>
+        <div className="actions">
+          <button className="primary_button">Сохранить</button>
+          <button className="alternate_button">Отменить</button>
+        </div>
         <span className="cross" onClick={this.changeShow}>
           &times;
         </span>
         <input className="name" type="text" name='value'
           value={ this.state.character.name }
         />
-        <textarea className="description" name='value'
+        <textarea className="description_input" name='value'
           value={ this.state.character.description }
         />
         <div className="img">
           <img src={`./img/${this.state.character.id}.jpg`} alt={this.state.character.id}></img>
-        </div>
-        <div className="actions">
-          <button>Сохранить</button>
-          <button>Отменить</button>
         </div>
       </div>
     );
@@ -71,6 +71,7 @@ class Node extends React.Component{
   }
 
   handleClick = (event) => {
+    debugger;
     if (!this.state.show && this.wrap.contains(event.target)) {
       this.changeShow();
       return;
@@ -111,7 +112,7 @@ class Node extends React.Component{
         <div className="node" ref={this.refWrap}>
           { this.state.character.name }
         </div>
-        <button onClick={this.addCharacter}>+</button>
+        <button className="but" onClick={this.addCharacter}>+</button>
         {
           this.state.show && 
             (this.state.edit 

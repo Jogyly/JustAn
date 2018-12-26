@@ -10,11 +10,11 @@
   justify-content: center;
 }
 
-.commonNode:hover button{
+.commonNode:hover .but {
   visibility: visible;
 }
 
-.commonNode button{
+.commonNode .but {
   position: absolute;
   margin: -5px 39px;
   border-radius: 50%;
@@ -42,12 +42,22 @@
 .name {
   font-size: 26px;
   text-align: center;
-  margin-bottom: 15px;
+  width: 90%;
+  margin: 0 0 15px 20px;
 }
 
 .description {
   text-align: justify;
   padding: 10px;
+}
+
+.description_input {
+  text-align: justify;
+  padding: 10px;
+  height: 169px;
+  width: 523px;
+  margin-left: 20px;
+  font-size: 18px;
 }
 
 .cross {
@@ -85,4 +95,12 @@ img {
 
 .img {
   margin: 10px 20px 0 150px;
+}
+
+.primary_button {
+  width: 100px;
+}
+
+.alternate_button {
+  width: 100px;
 }
