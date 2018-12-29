@@ -26,7 +26,7 @@ class App extends React.Component{
     const characters = makeTree(store2.characters);
     this.setState({
       load: true,
-      characters: characters,
+      characters,
     })
   }
 

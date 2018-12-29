@@ -10,6 +10,10 @@ class Store {
   initializeStore = (characters) => {
     this.characters = characters;
   }
+
+  changeStore = (characters) => {
+    this.characters = characters;
+  }
 }
 
 export default Store;

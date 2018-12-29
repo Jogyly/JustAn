@@ -1,92 +1,12 @@
 import React from 'react';
 import style from "./Node.css"; 
+import Popup from "../Popup/Popup.js"
 
 class Node extends React.Component{
   state = {
     name: this.props.name,
-    show: false,
+    showPopup: false,
     character: this.props.character,
-    edit: false,
-  }
-
-  componentDidMount = () => {
-    document.addEventListener("click", this.handleClick);
-  }
-
-  componentWillUnmount = () => {
-    document.removeEventListener("click", this.handleClick);
-  }
-
-  renderCharacter = () => {
-    return (
-      <div className="popup" ref={this.refWrapPopup}>
-        <span className="edit" onClick={this.edit}>
-          &Xi;
-        </span>
-        <span className="cross" onClick={this.changeShow}>
-          &times;
-        </span>
-        <div className="name">
-          { this.state.character.name }
-        </div>
-        <div className="description">
-          { this.state.character.description }
-        </div>
-        <div className="img">
-          <img src={`./img/${this.state.character.id}.jpg`} alt={this.state.character.id}></img>
-        </div>
-      </div>
-    );
-  }
-
-  renderEdit = () => {
-    return (
-      <div className="popup" ref={this.refWrapPopup}>
-        <div className="actions">
-          <button className="primary_button">Сохранить</button>
-          <button className="alternate_button">Отменить</button>
-        </div>
-        <span className="cross" onClick={this.changeShow}>
-          &times;
-        </span>
-        <input className="name" type="text" name='value'
-          value={ this.state.character.name }
-        />
-        <textarea className="description_input" name='value'
-          value={ this.state.character.description }
-        />
-        <div className="img">
-          <img src={`./img/${this.state.character.id}.jpg`} alt={this.state.character.id}></img>
-        </div>
-      </div>
-    );
-  }
-
-  refWrapPopup = (node) => {
-    this.wrapPopup = node;
-  }
-
-  refWrap = (node) => {
-    this.wrap = node;
-  }
-
-  handleClick = (event) => {
-    debugger;
-    if (!this.state.show && this.wrap.contains(event.target)) {
-      this.changeShow();
-      return;
-    }
-
-    if (this.state.show && !this.wrapPopup.contains(event.target)) {
-      this.changeShow();
-    }
-  }
-
-  handleChange = (e) => {
-    if (e.target.name == "name") {
-
-    } 
-    this.setState({[e.target.name]: e.target.value})
   }
 
   addCharacter = () => {
@@ -95,30 +15,20 @@ class Node extends React.Component{
 
   changeShow = () => {
     this.setState({
-      show: !this.state.show,
+      showPopup: !this.state.showPopup,
     });
   }
 
-  edit = () => {
-    this.setState({
-      edit: !this.state.edit,
-    })
-  }
-
   render() {
-    console.log(this.state.show + " " + this.state.edit);
     return (
       <div className="commonNode">
-        <div className="node" ref={this.refWrap}>
+        <div className="node" onClick={this.changeShow}>
           { this.state.character.name }
         </div>
         <button className="but" onClick={this.addCharacter}>+</button>
         {
-          this.state.show && 
-            (this.state.edit 
-              ? this.renderEdit()
-              : this.renderCharacter()
-            )
+          this.state.showPopup && 
+            <Popup character={this.state.character} changeShow={this.changeShow}/>
         }
       </div>
     );
