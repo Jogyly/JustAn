@@ -2,44 +2,44 @@
   "characters": [
     {
       "id": "creatures",
-      "name": "Существа",
-      "description": "Существа",
+      "name": "Creatures",
+      "description": "Creatures",
       "parent": null
     },
     {
       "id": "ancients",
-      "name": "Древние",
-      "description": "Древние",
+      "name": "Ancients",
+      "description": "Ancients",
       "parent": "creatures"
     },
     {
       "id": "dragons",
-      "name": "Драконы",
-      "description": "Драконы",
+      "name": "Dragons",
+      "description": "Dragons",
       "parent": "creatures"
     },
     {
       "id": "dark_dragon",
-      "name": "Тёмный дракон",
-      "description": "Тёмный дракон",
+      "name": "Dark dragon",
+      "description": "Dark dragon",
       "parent": "dragons"
     },
     {
       "id": "angel",
-      "name": "Ангелы",
-      "description": "Существа с крыльями",
+      "name": "Angel",
+      "description": "Creatures with wings",
       "parent": "creatures"
     },
     {
       "id": "shadow",
-      "name": "Тень",
-      "description": "Сильнейший из ангелов. Всегда носит черные металлические перчатки и маску.",
+      "name": "Shadow",
+      "description": "Dark angel with metal mask and combat gloves. Came back from purgatory",
       "parent": "angel"
     },
     {
       "id": "wolf",
-      "name": "Волк",
-      "description": "Angel",
+      "name": "Wolf",
+      "description": "Wolf",
       "parent": "angel"
     }
     ]
