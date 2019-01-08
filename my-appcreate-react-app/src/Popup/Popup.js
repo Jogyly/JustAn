@@ -2,7 +2,6 @@ import React from 'react';
 import style from "./Popup.css"; 
 import { inject } from "mobx-react";
 
-@inject('store2')
 class Popup extends React.Component{
   state = {
     character: this.props.character,
